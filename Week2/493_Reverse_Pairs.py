@@ -21,14 +21,14 @@ class Solution:
                     r += 1
             return res + left_arr[l:] + right_arr[r:] # 將剩下的元素接到後方
 
-        def devide(arr):
+        def divide(arr):
             if len(arr) <=1: return arr
 
             mid = len(arr)//2
-            left_arr = devide(arr[:mid])
-            right_arr = devide(arr[mid:])
+            left_arr = divide(arr[:mid])
+            right_arr = divide(arr[mid:])
 
             return merge(left_arr, right_arr)
 
-        nums = devide(nums)
+        nums = divide(nums)
         return self.count

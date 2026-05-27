@@ -1,0 +1,16 @@
+class Solution:
+    def minPatches(self, nums: List[int], n: int) -> int:
+        miss = 1
+        patches = 0
+        i = 0
+        length = len(nums)
+        
+        while miss <= n:
+            if i < length and nums[i] <= miss:
+                miss += nums[i] # 擴展邊界 
+                i += 1
+            else:
+                miss += miss
+                patches += 1
+        return patches
+                 
